@@ -1,46 +1,49 @@
 # AI Retreat 2026, step 2: setup before the retreat
 
-Skepparholmen, 13 to 14 October 2026. Please do these steps before you leave. Most of the time goes into downloads, so plan about 45 minutes. Bring your laptop and charger.
+Skepparholmen, 13 to 14 October 2026. Please do these steps, including all downloads, before you leave: the hotel network is shared by everyone. Plan about 45 minutes. Bring your laptop and charger.
 
-Use only public or synthetic data with the cloud tools below (Colab, Gemini, Claude, Antigravity, Codex). KTH rules: intra.kth.se, “Recommendations for the use of AI”.
+Use the synthetic data we supply, or public material that you are allowed to process, with the cloud tools below (Colab, Gemini, Claude, Antigravity, Codex). KTH rules: [Recommendations for the use of AI](https://intra.kth.se/en/it/natverk/regler-policys/rekommendationer-vid-anvandning-av-ai-1.1446862).
 
 ## Day 1: Google Colab
 
 1. Sign in at [colab.research.google.com](https://colab.research.google.com) with a Google account. A personal Gmail account works.
 2. Open the [CNN notebook in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/1-CNN/CNN_handson.ipynb). All material is at [github.com/artkula/ML-retreat-tekmek-2026](https://github.com/artkula/ML-retreat-tekmek-2026).
-3. In Colab, choose Runtime, Change runtime type, T4 GPU, and run the first cell. If it runs without an error, you are ready. The free plan gives enough GPU time for the day.
+3. In Colab, choose Runtime, Change runtime type, T4 GPU, and run the first cell. If it runs without an error, you are ready.
+
+Free GPU time in Colab is limited and not guaranteed. If Colab offers you no GPU on the day, tell us at the start of the session.
 
 ## Day 2: language models and agents
 
 ### Gemini API key, for the clinical data notebook
 
-1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your Google account and click “Create API key”. Copy the key.
-2. In Colab, click the key icon (Secrets) in the left bar, add a secret named `GOOGLE_API_KEY` with your key as the value, and switch on “Notebook access”.
+1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your Google account and click “Create API key”. If it asks for a project, take the one it offers. Copy the key.
+2. Open the [clinical data notebook in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/3-LLM/LLM_clinical_data.ipynb).
+3. In that notebook, click the key icon (Secrets) in the left bar, add a secret named `GOOGLE_API_KEY` with your key as the value, and switch on “Notebook access”.
 
-The free tier is enough. Keep the key in Secrets, never in the notebook text.
+Keep the key in Secrets, never in the notebook text.
 
 ### Claude: choose one of two options
 
-**Option A: Claude Pro (paid, recommended).** It includes Claude Code, the agent we use in the afternoon hands-on. Buy it at [claude.com/pricing](https://claude.com/pricing); it can be cancelled after the retreat. Then install Claude Code:
+**Option A: Claude Pro (paid, recommended).** It includes Claude Code, the agent we use in the afternoon hands-on. Take the monthly plan at [claude.com/pricing](https://claude.com/pricing) and cancel the renewal after the retreat if you do not want to keep it. Then install Claude Code (no administrator rights needed):
 
-- Windows, in PowerShell: `irm https://claude.ai/install.ps1 | iex`. Also install [Git for Windows](https://git-scm.com/downloads/win).
+- Windows, in PowerShell: `irm https://claude.ai/install.ps1 | iex`. [Git for Windows](https://git-scm.com/downloads/win) is useful but optional; skip it if the installer is blocked.
 - macOS or Linux, in a terminal: `curl -fsSL https://claude.ai/install.sh | bash`
 
-Open a new terminal, type `claude` and log in when the browser opens. `claude --version` should print a version number.
+Open a new terminal and type `claude --version`; it should print a version number. Then type `claude` and log in when the browser opens.
 
 **Option B: a free account** at [claude.ai](https://claude.ai). You can chat with Claude in the browser, but the free plan does not include Claude Code. In the hands-on you then work together with a colleague who has option A, or with Antigravity or Codex below.
 
 ### Optional: Antigravity or Codex
 
-- **Antigravity** (Google, free for individuals): download from [antigravity.google](https://antigravity.google) and sign in with your Google account.
-- **Codex** (OpenAI): needs a ChatGPT account, either KTH ChatGPT Edu or your own. Install the app or the command-line tool from [developers.openai.com/codex](https://developers.openai.com/codex), then sign in with ChatGPT.
+- **Antigravity** (Google, free for individuals with usage limits): download from [antigravity.google/download](https://antigravity.google/download) and sign in with a personal Google account.
+- **Codex** (OpenAI): needs a ChatGPT account. A KTH ChatGPT Edu licence must be [ordered in advance](https://intra.kth.se/it/programvara-o-system/programvara/installera/download/ai-services/chat-gpt/chatgpt-edu-1.1447849); otherwise use your own account. Install on Windows in PowerShell with `irm https://chatgpt.com/codex/install.ps1 | iex`, on a Mac with `curl -fsSL https://chatgpt.com/codex/install.sh | sh`. Then type `codex` and sign in with ChatGPT.
 
 ### A local model with Ollama
 
-A local model runs on your own laptop, and the data stay there.
+The model runs on your own laptop, so your prompts and data are not sent anywhere. Use only models without “cloud” in the name.
 
-1. Install Ollama from [ollama.com/download](https://ollama.com/download).
-2. Pick the model in the table that fits your computer.
+1. Install Ollama from [ollama.com/download](https://ollama.com/download). On a Mac, open the Ollama app once after installing. Keep about 5 GB of disk free plus the size of the model.
+2. Pick the model in the table that fits your computer. Most laptops take `4b` or `9b`. The table is a rough guide: the model needs more memory while it runs than its download size.
 3. Download and try it in a terminal with the two commands below the table.
 
 | Your computer | Model | Download |
@@ -59,7 +62,7 @@ ollama pull qwen3.5:4b
 ollama run qwen3.5:4b "Explain the finite element method in two sentences."
 ```
 
-If the answer takes more than a minute, take the next smaller model. A laptop without a graphics card writes a few words per second, which is enough to try it.
+If the answer takes more than a minute, take the next smaller model.
 
 ## Questions
 
