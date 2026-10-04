@@ -16,22 +16,26 @@ Free GPU time in Colab is limited and not guaranteed. If Colab offers you no GPU
 
 ### Gemini API key, for the clinical data notebook
 
-1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your Google account and click “Create API key”. If it asks for a project, take the one it offers. Copy the key.
-2. Open the [clinical data notebook in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/3-LLM/LLM_clinical_data.ipynb).
-3. In that notebook, click the key icon (Secrets) in the left bar, add a secret named `GOOGLE_API_KEY` with your key as the value, and switch on “Notebook access”.
+1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your own Google account and click “Create API key”. If it asks for a project, take the one it offers. Copy the key.
+2. In Colab, click the key icon (Secrets) in the left bar, choose “Add new secret”, name it `GOOGLE_API_KEY` and paste your key as the value. Secrets are stored in your Google account, visible only to you, and are not saved in any notebook.
+3. Open the [clinical data notebook in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/3-LLM/LLM_clinical_data.ipynb) and run the first cells. When it asks for access to `GOOGLE_API_KEY`, click “Grant access”.
 
-Keep the key in Secrets, never in the notebook text.
+### Claude, with Claude Code
 
-### Claude: choose one of two options
+Claude Code is the agent we use in the afternoon hands-on. Choose one of two free options:
 
-**Option A: Claude Pro (paid, recommended).** It includes Claude Code, the agent we use in the afternoon hands-on. Take the monthly plan at [claude.com/pricing](https://claude.com/pricing) and cancel the renewal after the retreat if you do not want to keep it. Then install Claude Code (no administrator rights needed):
+**Option A: join the Claude for Science workspace of Artem’s group.** The join link comes with the invitation mail. Every seat includes Claude Code and the Claude Science tools. Artem administers the workspace but cannot see what you enter. Please read the conditions of use.
+
+**Option B: apply for your own lab.** As a principal investigator you can apply for Anthropic’s [Team plan for scientists](https://claude.com/programs/team-plan-for-scientists): free seats for you and up to 24 members of your group for 12 months, with Claude Code included. Apply now so that the workspace is ready by the retreat.
+
+A paid Claude Pro subscription also includes Claude Code. The free claude.ai plan does not.
+
+Install Claude Code (no administrator rights needed):
 
 - Windows, in PowerShell: `irm https://claude.ai/install.ps1 | iex`. [Git for Windows](https://git-scm.com/downloads/win) is useful but optional; skip it if the installer is blocked.
 - macOS or Linux, in a terminal: `curl -fsSL https://claude.ai/install.sh | bash`
 
-Open a new terminal and type `claude --version`; it should print a version number. Then type `claude` and log in when the browser opens.
-
-**Option B: a free account** at [claude.ai](https://claude.ai). You can chat with Claude in the browser, but the free plan does not include Claude Code. In the hands-on you then work together with a colleague who has option A, or with Antigravity or Codex below.
+Open a new terminal and type `claude --version`; it should print a version number. Then type `claude` and log in with the account from option A or B when the browser opens.
 
 ### Optional: Antigravity or Codex
 
