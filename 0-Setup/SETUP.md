@@ -24,7 +24,7 @@ Free GPU time in Colab is limited and not guaranteed. If Colab offers you no GPU
 
 Claude Code is the agent we use in the afternoon hands-on. Choose one of two free options:
 
-**Option A: join the Claude for Science workspace of Artem’s group.** The join link comes with the invitation mail. Every seat includes Claude Code and the Claude Science tools. Artem administers the workspace but cannot see what you enter. Please read the conditions of use.
+**Option A: join the Claude for Science workspace of your group.** On day 2 the hands-on runs in two groups: teaching and administration, led by Artem, and science, led by Marco. Each group has its own workspace, and the join link comes with the invitation mail. Every seat includes Claude Code and the Claude Science tools. The group leader administers the workspace but cannot see what you enter. Please read the conditions of use.
 
 **Option B: apply for your own lab.** As a principal investigator you can apply for Anthropic’s [Team plan for scientists](https://claude.com/programs/team-plan-for-scientists): free seats for you and up to 24 members of your group for 12 months, with Claude Code included. Apply now so that the workspace is ready by the retreat.
 
