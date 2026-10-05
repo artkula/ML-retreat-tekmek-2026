@@ -68,6 +68,15 @@ ollama run qwen3.5:4b "Explain the finite element method in two sentences."
 
 If the answer takes more than a minute, take the next smaller model.
 
+### Claude Code with your local model
+
+No Claude account is needed for this.
+
+1. In the Ollama app, open Settings and set the context length to 64k. The default 4k is too small for an agent.
+2. In an empty folder, open a terminal, run `ollama launch claude --model qwen3.5:4b` and give it a small task.
+
+Without a graphics card, one step can take a few minutes.
+
 ## Questions
 
 Artem Kulachenko, artem@kth.se
