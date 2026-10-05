@@ -16,7 +16,7 @@ Free GPU time in Colab is limited and not guaranteed. If Colab offers you no GPU
 
 ### Gemini API key, for the clinical data notebook
 
-1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your own Google account and click “Create API key”. If it asks for a project, take the one it offers. Copy the key.
+1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your own Google account and click “Create API key”. If it asks for a project, take the one it offers or create a new one. Copy the key.
 2. In Colab, click the key icon (Secrets) in the left bar, choose “Add new secret”, name it `GOOGLE_API_KEY` and paste your key as the value. Secrets are stored in your Google account, visible only to you, and are not saved in any notebook.
 3. Open the [clinical data notebook in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/3-LLM/LLM_clinical_data.ipynb) and run the first cells. When it asks for access to `GOOGLE_API_KEY`, click “Grant access”.
 
@@ -24,9 +24,9 @@ Free GPU time in Colab is limited and not guaranteed. If Colab offers you no GPU
 
 Claude Code is the agent we use in the afternoon hands-on. Choose one of two free options:
 
-**Option A: join the Claude for Science workspace of your group.** On day 2 the hands-on runs in two groups: teaching and administration, led by Artem, and science, led by Marco. Each group has its own workspace, and the join link comes with the invitation mail. Every seat includes Claude Code and the Claude Science tools. The group leader administers the workspace but cannot see what you enter. Please read the conditions of use.
+**Option A: join the Claude for Science workspace of your group.** On day 2 the hands-on runs in two groups: teaching and administration, led by Artem, and science, led by Marco. Each group has its own workspace, and the join link comes with the invitation mail. Every seat includes Claude Code and the Claude Science tools. The group leader administers the workspace. Please read the conditions of use.
 
-**Option B: apply for your own lab.** As a principal investigator you can apply for Anthropic’s [Team plan for scientists](https://claude.com/programs/team-plan-for-scientists): free seats for you and up to 24 members of your group for 12 months, with Claude Code included. Apply now so that the workspace is ready by the retreat.
+**Option B: apply for your own lab.** As a principal investigator you can apply for Anthropic’s [Team plan for scientists](https://claude.com/programs/team-plan-for-scientists): free seats for you and up to 24 members of your group for 12 months, with Claude Code included. Approval takes about a week, so apply now; until then, use option A.
 
 A paid Claude Pro subscription also includes Claude Code. The free claude.ai plan does not.
 
@@ -45,7 +45,7 @@ Open a new terminal and type `claude --version`; it should print a version numbe
 
 ### A local model with Ollama
 
-The model runs on your own laptop, so your prompts and data are not sent anywhere. Use only models without “cloud” in the name.
+The model runs on your own laptop, so the model itself sends nothing to the cloud. Use only models without “cloud” in the name.
 
 1. Install Ollama from [ollama.com/download](https://ollama.com/download). On a Mac, open the Ollama app once after installing. Keep about 5 GB of disk free plus the size of the model.
 2. Pick the model in the table that fits your computer. Most laptops take `4b` or `9b`. The table is a rough guide: the model needs more memory while it runs than its download size.
@@ -73,7 +73,7 @@ If the answer takes more than a minute, take the next smaller model.
 
 No Claude account is needed for this.
 
-1. In the Ollama app, open Settings and set the context length to 64k. The default 4k is too small for an agent.
+1. In the Ollama app, open Settings and set the context length to 64k (32k on a laptop with 16 GB or less). The default 4k is too small for an agent.
 2. In an empty folder, open a terminal, run `ollama launch claude --model qwen3.5:4b` and give it a small task.
 
 Without a graphics card, one step can take a few minutes.
