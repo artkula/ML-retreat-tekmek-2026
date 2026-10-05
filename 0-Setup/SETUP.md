@@ -1,6 +1,6 @@
 # AI Retreat 2026: setup before the retreat
 
-Skepparholmen, 13 to 14 October 2026. Please do these steps, including all downloads, before you leave: the hotel network is shared by everyone. Plan about 45 minutes. Bring your laptop and charger.
+Skepparholmen, 13 to 14 October 2026. Please start now: accounts and workspaces can take several days. Do all steps, including the downloads, before you leave; the hotel network is shared by everyone. Bring your laptop and charger.
 
 Use the synthetic data we supply, or public material that you are allowed to process, with the cloud tools below (Colab, Gemini, Claude, Antigravity, Codex). KTH rules: [Recommendations for the use of AI](https://intra.kth.se/en/it/natverk/regler-policys/rekommendationer-vid-anvandning-av-ai-1.1446862).
 
