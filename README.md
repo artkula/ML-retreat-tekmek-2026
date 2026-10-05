@@ -1,4 +1,4 @@
-# ML Retreat TekMek 2026 (step 2)
+# ML Retreat TekMek 2026
 
 Skepparholmen, 13 to 14 October 2026. Teachers: Artem Kulachenko and Marco Laudato.
 

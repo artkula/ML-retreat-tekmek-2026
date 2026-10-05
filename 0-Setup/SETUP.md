@@ -1,4 +1,4 @@
-# AI Retreat 2026, step 2: setup before the retreat
+# AI Retreat 2026: setup before the retreat
 
 Skepparholmen, 13 to 14 October 2026. Please do these steps, including all downloads, before you leave: the hotel network is shared by everyone. Plan about 45 minutes. Bring your laptop and charger.
 
