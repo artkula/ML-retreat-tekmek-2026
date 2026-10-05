@@ -37,10 +37,11 @@ Install Claude Code (no administrator rights needed):
 
 Open a new terminal and type `claude --version`; it should print a version number. Then type `claude` and log in with the account from option A or B when the browser opens.
 
-### Optional: Antigravity or Codex
+### Optional: Antigravity, Codex or Warp
 
 - **Antigravity** (Google, free for individuals with usage limits): download from [antigravity.google/download](https://antigravity.google/download) and sign in with a personal Google account.
 - **Codex** (OpenAI): needs a ChatGPT account. A KTH ChatGPT Edu licence must be [ordered in advance](https://intra.kth.se/it/programvara-o-system/programvara/installera/download/ai-services/chat-gpt/chatgpt-edu-1.1447849); otherwise use your own account. Install on Windows in PowerShell with `irm https://chatgpt.com/codex/install.ps1 | iex`, on a Mac with `curl -fsSL https://chatgpt.com/codex/install.sh | sh`. Then type `codex` and sign in with ChatGPT.
+- **Warp**: a terminal for running and managing several agents (Claude Code, Codex) side by side. Download from [warp.dev/download](https://www.warp.dev/download).
 
 ### A local model with Ollama
 
