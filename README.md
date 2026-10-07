@@ -8,6 +8,29 @@ Step 1 (2025): https://github.com/artkula/ML-retreat-tekmek-2025
 
 Please follow [0-Setup/SETUP.md](0-Setup/SETUP.md): a Google account for Colab, a Gemini API key, a Claude account, and Ollama with a small local model to try.
 
+## Running the notebooks
+
+### Option 1: Google Colab (easiest, no setup)
+
+Each notebook has an “Open in Colab” button at the top, and the links in the table below do the same. Colab opens the notebook from this repository and runs it in your browser. For the CNN notebook, choose Runtime, Change runtime type, T4 GPU.
+
+### Option 2: your own computer (VS Code or Jupyter)
+
+1. Install [Python](https://www.python.org/downloads/) 3.10 to 3.12 and [VS Code](https://code.visualstudio.com/) with the Python and Jupyter extensions.
+2. Clone or download this repository and open the folder in VS Code.
+3. Create a virtual environment and install the packages in a terminal:
+
+   ```
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+   On macOS or Linux, activate with `source venv/bin/activate`.
+4. Open a notebook, select the interpreter from `venv` as the kernel, and run the cells.
+
+The first code cell of each notebook installs any package that is still missing, so the notebooks also run in an existing Python environment. For the clinical data notebook, set your Gemini key as the environment variable `GOOGLE_API_KEY` before starting VS Code (in Colab it is read from Secrets). On the KTH network the notebook can also use the department GPU server instead of Gemini; choose it in the model list.
+
 ## Sessions
 
 | Day | Session | Notebook |

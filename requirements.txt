@@ -1,0 +1,24 @@
+# Core scientific computing
+numpy
+pandas
+matplotlib
+seaborn
+python-dateutil
+tqdm
+
+# Machine learning
+scikit-learn
+
+# Deep learning (CNN notebook)
+tensorflow
+gdown
+
+# LLM notebook (Gemini API; Google Sheets is optional)
+google-genai
+jsonschema
+gspread
+
+# Jupyter and widgets
+ipywidgets
+notebook
+jupyter
