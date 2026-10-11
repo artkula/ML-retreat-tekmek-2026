@@ -29,7 +29,7 @@ Each notebook has an “Open in Colab” button at the top, and the links in the
    On macOS or Linux, activate with `source venv/bin/activate`.
 4. Open a notebook, select the interpreter from `venv` as the kernel, and run the cells.
 
-The first code cell of each notebook installs any package that is still missing, so the notebooks also run in an existing Python environment. For the clinical data notebook, set your Gemini key as the environment variable `GOOGLE_API_KEY` before starting VS Code (in Colab it is read from Secrets). On the KTH network the notebook can also use the department GPU server instead of Gemini; choose it in the model list.
+The first code cell of each notebook installs any package that is still missing, so the notebooks also run in an existing Python environment. For the clinical data notebook, set your Gemini key as the environment variable `GOOGLE_API_KEY` before starting VS Code (in Colab it is read from Secrets). On the KTH network the notebook can also use the department GPU server instead of Gemini; choose it in the model list. Optional: with an Ollama key (created at ollama.com/settings/keys and stored as `OLLAMA_API_KEY`, in Colab Secrets or as an environment variable) the model list also offers open models through the Ollama Cloud API; the Free plan of Ollama includes a starter amount of usage.
 
 ## Sessions
 
