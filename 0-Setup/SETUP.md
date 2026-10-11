@@ -2,7 +2,7 @@
 
 Skepparholmen, 13 to 14 October 2026. Please start now: accounts and workspaces can take several days. Do all steps, including the downloads, before you leave; the hotel network is shared by everyone. Bring your laptop and charger.
 
-Use the synthetic data we supply, or public material that you are allowed to process, with the cloud tools below (Colab, Gemini, Claude, Antigravity, Codex). KTH rules: [Recommendations for the use of AI](https://intra.kth.se/en/it/natverk/regler-policys/rekommendationer-vid-anvandning-av-ai-1.1446862).
+Use the synthetic data we supply, or public material that you are allowed to process, with the cloud tools below (Colab, Gemini, Ollama Cloud, Claude, Antigravity, Codex). KTH rules: [Recommendations for the use of AI](https://intra.kth.se/en/it/natverk/regler-policys/rekommendationer-vid-anvandning-av-ai-1.1446862).
 
 ## Day 1: Google Colab
 
@@ -19,6 +19,8 @@ Free GPU time in Colab is limited and not guaranteed. If Colab offers you no GPU
 1. Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey), sign in with your own Google account and click “Create API key”. If it asks for a project, take the one it offers or create a new one. Copy the key.
 2. In Colab, click the key icon (Secrets) in the left bar, choose “Add new secret”, name it `GOOGLE_API_KEY` and paste your key as the value. Secrets are stored in your Google account, visible only to you, and are not saved in any notebook.
 3. Open the [clinical data notebook in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/3-LLM/LLM_clinical_data.ipynb) and run the first cells. When it asks for access to `GOOGLE_API_KEY`, click “Grant access”.
+
+Optional: with a second secret named `OLLAMA_API_KEY`, the model list of the notebook also offers open models through the Ollama Cloud API. Create the key at [ollama.com/settings/keys](https://ollama.com/settings/keys) with a free Ollama account; the Free plan includes a starter amount of usage. The notebook works without it.
 
 ### Claude, with Claude Code
 
