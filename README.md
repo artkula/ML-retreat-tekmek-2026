@@ -36,7 +36,7 @@ The first code cell of each notebook installs any package that is still missing,
 | Day | Session | Notebook |
 |---|---|---|
 | Tue | CNN hands-on: convolution, pooling, CNN autoencoders for flow fields | [Open in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/1-CNN/CNN_handson.ipynb) |
-| Tue | GANs and PINNs: lecture and hands-on | from Marco |
+| Tue | GANs and PINNs: lecture and hands-on | [Open in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/2-GAN_PINN/GANs_PINNs_handson.ipynb) |
 | Wed | LLMs: unifying synthetic clinical records from five countries | [Open in Colab](https://colab.research.google.com/github/artkula/ML-retreat-tekmek-2026/blob/main/3-LLM/LLM_clinical_data.ipynb) |
 | Wed | Agents with local models, Claude for science | demos |
 | Wed | Hands-on with agents in two groups: teaching and administration (Artem), science (Marco) | group work |
