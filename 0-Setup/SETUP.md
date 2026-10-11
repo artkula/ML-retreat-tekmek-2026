@@ -64,10 +64,10 @@ Replace `4b` with your choice:
 
 ```
 ollama pull qwen3.5:4b
-ollama run qwen3.5:4b "Explain the finite element method in two sentences."
+ollama run qwen3.5:4b --think=false "Explain the finite element method in two sentences."
 ```
 
-If the answer takes more than a minute, take the next smaller model.
+`--think=false` switches off the reasoning step of the model, which can take several minutes on a laptop without a graphics card. If the answer still takes more than a minute, take the next smaller model.
 
 ### Claude Code with your local model
 
