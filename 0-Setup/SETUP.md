@@ -1,6 +1,6 @@
 # AI Retreat 2026: setup before the retreat
 
-Skepparholmen, 13 to 14 October 2026. Please start now: accounts and workspaces can take several days. Do all steps, including the downloads, before you leave; the hotel network is shared by everyone. Bring your laptop and charger.
+Skepparholmen, 13 to 14 October 2026. Do all steps, including the downloads, before you leave; the hotel network is shared by everyone. Bring your laptop and charger.
 
 Use the synthetic data we supply, or public material that you are allowed to process, with the cloud tools below (Colab, Gemini, Ollama Cloud, Claude, Antigravity, Codex). KTH rules: [Recommendations for the use of AI](https://intra.kth.se/en/it/natverk/regler-policys/rekommendationer-vid-anvandning-av-ai-1.1446862).
 
@@ -24,11 +24,11 @@ Optional: with a second secret named `OLLAMA_API_KEY`, the model list of the not
 
 ### Claude, with Claude Code
 
-Claude Code is the agent we use in the afternoon hands-on. Choose one of two free options:
+Claude Code is the agent we use in the afternoon hands-on. For the retreat, use option A, or option B if your own lab is already approved:
 
 **Option A: join the Claude for Science workspace of your group.** On day 2 the hands-on runs in two groups: teaching and administration, led by Artem, and science, led by Marco. Each group has its own workspace, and the join link comes with the invitation mail. Every seat includes Claude Code and the Claude Science tools. The group leader administers the workspace. Please read the conditions of use.
 
-**Option B: apply for your own lab.** As a principal investigator you can apply for Anthropic’s [Team plan for scientists](https://claude.com/programs/team-plan-for-scientists): free seats for you and up to 24 members of your group for 12 months, with Claude Code included. Approval takes about a week, so apply now; until then, use option A.
+**Option B: apply for your own lab.** As a principal investigator you can apply for Anthropic’s [Team plan for scientists](https://claude.com/programs/team-plan-for-scientists): free seats for you and up to 24 members of your group for 12 months, with Claude Code included. Approval takes about a week, so a new application is for use after the retreat.
 
 A paid Claude Pro subscription also includes Claude Code. The free claude.ai plan does not.
 
