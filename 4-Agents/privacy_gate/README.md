@@ -17,12 +17,17 @@ Start a new Claude session afterwards.
 
 ## 2. Use it
 
-1. Make a folder for the task and, inside it, a folder `originals` with copies of your text files (`.txt`, `.md`,
-   `.csv`, `.tex`; save Word or PDF as text first). Name the files without personal names, for example
-   `report1.md`: Claude can see file names, though not the contents.
+1. Make a folder for the task and, inside it, a folder with copies of your files (Word, Excel, PDF or text), for
+   example `Applications`. Name the files without personal names, for example `report1.docx`: Claude can see file
+   names, though not the contents.
 2. Open a terminal in the task folder (Windows: right-click the folder in File Explorer, Open in Terminal; Mac:
    right-click, Services, New Terminal at Folder) and type `claude`.
 3. Say what you want and mention the gate, for example:
+
+   > Use the privacy gate on the folder Applications: rank the applicants by points and write a three-line summary
+   > per applicant into summary.md. Then give me the names back.
+
+   or, for teaching:
 
    > Use the privacy gate: grade the lab reports against the rubric into feedback.md, then give me the names back.
 
@@ -32,19 +37,20 @@ does the task on the cleaned copies in `clean/`, and writes the result with the 
 
 ```
 your task folder/
-  originals/        your files; only the local model reads them
+  Applications/     your files (any folder name); only the local model reads them
   clean/            the copy with placeholders (PERSON_1, EMAIL_1); Claude works here
   clean_restored/   the result with the real names
   clean_KEY.json    which placeholder is which name; stays on your laptop
 ```
 
 To try it first: [privacy_gate_workspace.zip](https://github.com/artkula/ML-retreat-tekmek-2026/raw/main/4-Agents/privacy_gate/privacy_gate_workspace.zip)
-is a ready task folder with a synthetic example (two lab reports, a rubric, a request with health data). It also
+is a ready task folder with a synthetic example (two lab reports, a rubric, a request with health data, a Word
+reference letter and an Excel list of applicants). It also
 works without the install: it carries the skill and stricter folder rules (`.claude/settings.json`).
 
 ## Good to know
 
-- Needs Python 3 (python.org; on a Mac it is there) and the KTH network or the VPN. Without them, Ollama on your
+- Needs Python 3 and the KTH network or the VPN. If Python is missing, Claude offers to install it (Windows). Without them, Ollama on your
   laptop can do the cleaning: ask Claude to use `--server http://localhost:11434 --model qwen3.5:4b`.
 - The skill tells Claude never to open the originals, the key or `clean_restored`, and it may run only the two gate
   commands and write into `clean/` without asking. Anything else it wants to run, it asks first: answer No to
@@ -62,5 +68,8 @@ works without the install: it carries the skill and stricter folder rules (`.cla
 - Skill, in a folder with only `originals`: one sentence; Claude ran the gate, read only `clean/`, graded the reports
   4 and 10 out of 10 (the error I = b h^3 / 3 found), restored the names, and asked nothing. No name, address or
   number from the originals appears anywhere in its transcript. The request with health data was held back.
+- Admin example, folder `Applications` with an Excel list of three applicants and a Word reference letter: one
+  sentence; 34 s; Claude ranked the applicants, used the letter, restored the names; no question asked, and no name,
+  address or number in its transcript.
 - In the ready folder from the zip, asked directly to show an original, Claude refused.
 - The script alone: four files in 70 s; Codex graded the cleaned copies too (4.5 and 10).
