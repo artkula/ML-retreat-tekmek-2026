@@ -113,7 +113,11 @@ def clean(src, dst, server, model):
             text = open(path, encoding="utf-8", errors="replace").read()
             found, withhold, reasons = [], False, []
             for i in range(0, len(text), CHUNK):
-                ans = ask(server, model, text[i:i + CHUNK])
+                try:
+                    ans = ask(server, model, text[i:i + CHUNK])
+                except OSError as e:
+                    sys.exit(f"No answer from the local model at {server} ({e.__class__.__name__}). "
+                             "Connect to the KTH network or the VPN, or use --server and --model for Ollama on this laptop.")
                 found += [(e["text"].strip(), e["type"].strip().upper().replace(" ", "_"))
                           for e in ans.get("entities", []) if e.get("text", "").strip() and e["text"].strip() in text]
                 if ans.get("withhold"):

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ml-retreat-tekmek-2026",
+  "description": "Tools for the TekMek AI retreat 2026",
+  "owner": { "name": "Artem Kulachenko" },
+  "plugins": [
+    {
+      "name": "privacy-gate",
+      "description": "A local model on the KTH GPU server removes personal data from your files before Claude works on them, and the real names are put back at the end.",
+      "source": "./4-Agents/privacy_gate/plugin"
+    }
+  ]
+}
