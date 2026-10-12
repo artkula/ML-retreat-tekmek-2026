@@ -1,6 +1,6 @@
 {
   "name": "privacy-gate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A local model on the KTH GPU server removes personal data from your files before Claude works on them, and the real names are put back at the end.",
   "author": {
     "name": "Artem Kulachenko, KTH"

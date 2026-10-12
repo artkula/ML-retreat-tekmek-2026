@@ -1,7 +1,7 @@
 ---
 name: privacy-gate
 description: Use when the user wants Claude to work on files that may hold personal data (student work, names, personal identity numbers, grades, e-mail addresses, health information) or says "privacy gate", "/privacy-gate", "clean the originals", "anonymise first". A local model on the KTH GPU server removes the personal data first; Claude works only on the cleaned copy and puts the real names back at the end, into a file it does not open. Skip for files the user says are public or synthetic.
-allowed-tools: Bash(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" clean originals clean) Bash(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" restore clean/*) PowerShell(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" clean originals clean) PowerShell(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" restore clean/*)
+allowed-tools: Bash(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" clean originals clean) Bash(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" restore clean/*) PowerShell(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" clean originals clean) PowerShell(python "${CLAUDE_SKILL_DIR}/privacy_gate.py" restore clean/*) Write(clean/**) Edit(clean/**)
 ---
 
 # Privacy gate

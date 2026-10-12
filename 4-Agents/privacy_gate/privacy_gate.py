@@ -161,6 +161,8 @@ def restore(target, keyfile):
     cleandir = os.path.abspath(keyfile[:-len("_KEY.json")])
     if not os.path.abspath(target).startswith(cleandir):
         sys.exit(f"restore works only on files in {cleandir}")
+    if not os.path.exists(target):
+        sys.exit(f"Not found: {target}")
     files = [target] if os.path.isfile(target) else [os.path.join(r, f) for r, _, fs in os.walk(target) for f in fs]
     for path in files:
         if os.path.splitext(path)[1].lower() not in TEXT or path.endswith("_privacy_report.md"):
