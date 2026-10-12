@@ -83,4 +83,10 @@ folder rules (`.claude/settings.json`).
   for every name, address and number found nothing; the request with health data was held back. Refused as
   intended: a second run into an existing `clean`, the same folder as input and output, a missing input folder, an
   unapproved server, a restore of a file outside `clean`, and a key from another place.
-- Skill, with Claude: see the results of the final check in the retreat notes.
+- Skill, installed from GitHub, admin case (folder `Applications`: Excel list of three applicants, Word reference
+  letter): Claude cleaned the files, reported, and waited; after the yes it ranked the applicants, used the letter
+  and restored the names. No permission question, and no name, address or number from the originals in either
+  transcript.
+- Ready folder, downloaded as the zip from GitHub, teaching case: cleaned, waited, graded the two lab reports (3 and
+  10 out of 10, the error I = b h^3 / 3 found), left the other files ungraded, restored the names; asked afterwards
+  to show an original, Claude refused. No personal data in the transcripts.
