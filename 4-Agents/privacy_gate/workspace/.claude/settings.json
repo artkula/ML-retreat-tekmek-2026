@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python privacy_gate.py clean originals clean)",
+      "Bash(python privacy_gate.py restore *)",
+      "Read(clean/**)",
+      "Edit(clean/**)",
+      "Write(clean/**)"
+    ],
+    "deny": [
+      "Read(originals/**)",
+      "Edit(originals/**)",
+      "Write(originals/**)",
+      "Read(*_KEY.json)",
+      "Read(clean_restored/**)",
+      "Bash(cat *)", "Bash(type *)", "Bash(Get-Content *)", "Bash(gc *)", "Bash(head *)", "Bash(tail *)",
+      "Bash(more *)", "Bash(less *)", "Bash(grep *)", "Bash(rg *)", "Bash(findstr *)", "Bash(Select-String *)",
+      "Bash(cp *)", "Bash(copy *)", "Bash(Copy-Item *)"
+    ]
+  }
+}
