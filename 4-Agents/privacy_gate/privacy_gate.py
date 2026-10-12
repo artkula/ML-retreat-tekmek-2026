@@ -8,8 +8,8 @@ How it works:
    the KTH network or the VPN). The model lists the personal data it finds and says whether the file must not
    leave KTH at all (for example health data about a named person).
 2. The script replaces each item with a placeholder (PERSON_1, EMAIL_1, ...) and writes the result to the output
-   folder. A file the model says must stay is not copied. Other file types (Word, PDF, images) are not copied either:
-   save them as text first.
+   folder as text (Word, Excel and PDF files become .md). A file the model says must stay is not copied. Images and
+   scanned PDFs are not copied either.
 3. A pattern check (e-mail addresses, Swedish personal identity numbers, phone numbers) runs on every cleaned file.
    Anything it still finds is replaced too and named in the report.
 4. The key (placeholder to real value) is written next to the output folder, never inside it: the cloud agent works
@@ -56,6 +56,56 @@ PATTERNS = [                                   # the safety net after the model
     ("PERSONNUMMER", re.compile(r"\b(?:19|20)?\d{6}[-+ ]?\d{4}\b")),
     ("PHONE", re.compile(r"(?:\+46|\b0)[\s-]?7\d(?:[\s-]?\d){7}\b")),
 ]
+
+
+def read_document(path):
+    """Text of a file, and the extension of its cleaned copy. Word and Excel are read with the standard library,
+    PDF with pypdf if it is installed. Returns (None, reason) for a file that cannot be read."""
+    import zipfile, xml.etree.ElementTree as ET
+    ext = os.path.splitext(path)[1].lower()
+    if ext in TEXT:
+        return open(path, encoding="utf-8", errors="replace").read(), ext
+    W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    S = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
+    try:
+        if ext == ".docx":
+            with zipfile.ZipFile(path) as z:
+                root = ET.fromstring(z.read("word/document.xml"))
+            paras = ["".join(t.text or "" for t in p.iter(W + "t")) for p in root.iter(W + "p")]
+            return "\n".join(paras), ".md"
+        if ext == ".xlsx":
+            with zipfile.ZipFile(path) as z:
+                shared = []
+                if "xl/sharedStrings.xml" in z.namelist():
+                    for si in ET.fromstring(z.read("xl/sharedStrings.xml")).iter(S + "si"):
+                        shared.append("".join(t.text or "" for t in si.iter(S + "t")))
+                lines = []
+                for name in sorted(n for n in z.namelist() if n.startswith("xl/worksheets/sheet") and n.endswith(".xml")):
+                    lines.append(f"## {os.path.basename(name)[:-4]}")
+                    for row in ET.fromstring(z.read(name)).iter(S + "row"):
+                        cells = []
+                        for c in row.iter(S + "c"):
+                            v = c.find(S + "v")
+                            val = "" if v is None else (v.text or "")
+                            if c.get("t") == "s" and val.isdigit():
+                                val = shared[int(val)]
+                            elif c.get("t") == "inlineStr":
+                                val = "".join(t.text or "" for t in c.iter(S + "t"))
+                            cells.append(val)
+                        lines.append("\t".join(cells))
+            return "\n".join(lines), ".md"
+        if ext == ".pdf":
+            try:
+                from pypdf import PdfReader
+            except ImportError:
+                return None, "a PDF; install the reader once with: python -m pip install pypdf"
+            text = "\n".join(pg.extract_text() or "" for pg in PdfReader(path).pages)
+            if not text.strip():
+                return None, "a PDF without text (a scan); it needs text recognition first"
+            return text, ".md"
+    except Exception as e:
+        return None, f"could not be read ({e.__class__.__name__})"
+    return None, "not a text, Word, Excel or PDF file"
 
 
 def ask(server, model, text):
@@ -106,11 +156,13 @@ def clean(src, dst, server, model):
         for name in sorted(files):
             path = os.path.join(root, name)
             rel = os.path.relpath(path, src)
-            if os.path.splitext(name)[1].lower() not in TEXT:
-                report.append(f"- {rel}: NOT COPIED (not a text file; save it as .txt or .md first)")
-                print(f"skip   {rel}: not a text file")
+            text, out_ext = read_document(path)
+            if text is None:
+                report.append(f"- {rel}: NOT COPIED ({out_ext})")
+                print(f"skip   {rel}: {out_ext}")
                 continue
-            text = open(path, encoding="utf-8", errors="replace").read()
+            if out_ext != os.path.splitext(rel)[1].lower():
+                rel = os.path.splitext(rel)[0] + out_ext          # report.docx -> report.md
             found, withhold, reasons = [], False, []
             for i in range(0, len(text), CHUNK):
                 try:
