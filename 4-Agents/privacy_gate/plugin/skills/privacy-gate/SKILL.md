@@ -45,7 +45,9 @@ The user’s task, if given with the command: $ARGUMENTS
 3. Read `clean/_privacy_report.md` (nothing else yet). Tell the user in two or three lines how many files were
    cleaned and how many were held back (those stay at KTH). The cleaned files have neutral names (FILE_0001.md, ...).
    Then stop and ask the user to look at the files in `clean` on their own computer and confirm that they may be
-   shared with you. Continue only after the user says yes.
+   shared with you. Continue only after the user says yes. When the user confirms, first load this skill again
+   with the Skill tool (privacy-gate), because its permissions to write into `clean/` and to run restore last only
+   for the turn in which it is loaded; then continue with step 4.
 4. Do the user’s task with the files in `clean/` only. Write every result into `clean/` as a .md or .txt file.
 5. Restore each result file, again as one command exactly as written:
 
